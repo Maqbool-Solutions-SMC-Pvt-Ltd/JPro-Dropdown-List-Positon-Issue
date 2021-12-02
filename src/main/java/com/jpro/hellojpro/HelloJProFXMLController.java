@@ -1,5 +1,8 @@
 package com.jpro.hellojpro;
 
+import com.jfoenix.controls.JFXAutoCompletePopup;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import com.jpro.webapi.JProApplication;
 import com.jpro.webapi.WebAPI;
 import javafx.animation.Animation;
@@ -14,7 +17,11 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.scene.layout.FlowPane;
+import javafx.stage.Stage;
+import org.controlsfx.control.textfield.TextFields;
 
 /**
  * Created by TB on 25.02.16.
@@ -28,15 +35,26 @@ public class HelloJProFXMLController implements Initializable
     @FXML
     protected Node logo;
 
+    @FXML
+    protected JFXComboBox cbxCountry;
+
+    @FXML
+    private FlowPane flowPane;
+
+    @FXML
+    private JFXTextField txtProgramingLanguage;
+
     protected JProApplication jProApplication;
 
     protected ParallelTransition pt;
 
-
+    public Stage stage;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
         platformLabel.setText(String.format("Platform: %s", WebAPI.isBrowser() ? "Browser" : "Desktop"));
+        cbxCountry.getItems().addAll("Pakistan", "Australia", "Bangladesh", "India", "Turkey");
     }
 
     protected void initLogoAnimation(Node logo)
@@ -68,5 +86,26 @@ public class HelloJProFXMLController implements Initializable
     {
         this.jProApplication = jProApplication;
         initLogoAnimation(this.logo);
+
+        programingLanguageAutoList();
+
+        flowPane.prefWrapLengthProperty().bind(stage.widthProperty());
+    }
+
+    private void programingLanguageAutoList() {
+        ArrayList<String> list = new ArrayList<>();
+
+        list.add("C");
+        list.add("Java");
+        list.add("Python");
+        list.add("C++");
+        list.add("C#");
+        list.add("Visual Basic");
+        list.add("JavaScript");
+        list.add("PHP");
+        list.add("SQL");
+        list.add("Groovy ");
+
+        TextFields.bindAutoCompletion(txtProgramingLanguage, list);
     }
 }

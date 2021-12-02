@@ -25,6 +25,7 @@ public class HelloJProFXML extends JProApplication
         {
             Parent root = loader.load();
             HelloJProFXMLController controller = loader.getController();
+            controller.stage = stage;
             controller.init(this);
 
             //create JavaFX scene

@@ -1,18 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.StackPane?>
-<StackPane
-        xmlns:fx="http://javafx.com/fxml"
-        stylesheets="@../css/HelloJPro.css"
-        prefWidth="800" prefHeight="600"
-        fx:id="root"
-        fx:controller="com.jpro.hellojpro.HelloJProFXMLController">
-    <Label text="Hello" styleClass="hello-label"></Label>
-    <ImageView fx:id="logo" fitWidth="300" preserveRatio="true">
-        <Image url="@../img/JPRO_logo_rgb.png"></Image>
-    </ImageView>
-    <Label fx:id="platformLabel" text="Platform: " styleClass="platform-label" StackPane.alignment="BOTTOM_CENTER"></Label>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="root" prefHeight="600" prefWidth="800" stylesheets="@../css/HelloJPro.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpro.hellojpro.HelloJProFXMLController">
+   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+      <children>
+          <Label styleClass="hello-label" text="Hello" />
+          <ImageView fx:id="logo" fitWidth="300" preserveRatio="true">
+              <Image url="@../img/JPRO_logo_rgb.png" />
+          </ImageView>
+          <Label fx:id="platformLabel" styleClass="platform-label" text="Platform: " />
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <children>
+               <JFXTextField fx:id="txtProgramingLanguage" labelFloat="true" promptText="Programing Language" />
+               <JFXComboBox fx:id="cbxCountry" labelFloat="true" prefHeight="25.0" prefWidth="264.0" promptText="Country" />
+            </children>
+         </HBox>
+         <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
+            <content>
+               <FlowPane fx:id="flowPane" hgap="10.0" vgap="10.0">
+                  <children>
+                     <VBox minWidth="240.0" prefHeight="200.0" style="-fx-background-color: red;" />
+                     <VBox layoutX="10.0" layoutY="10.0" minWidth="240.0" prefHeight="200.0" style="-fx-background-color: pink;" />
+                     <VBox layoutX="310.0" layoutY="10.0" minWidth="240.0" prefHeight="200.0" style="-fx-background-color: blue;" />
+                     <VBox layoutX="530.0" layoutY="10.0" minWidth="240.0" prefHeight="200.0" style="-fx-background-color: yellow;" />
+                     <VBox layoutX="10.0" layoutY="220.0" minWidth="240.0" prefHeight="200.0" style="-fx-background-color: green;" />
+                     <VBox layoutX="270.0" layoutY="220.0" minWidth="240.0" prefHeight="200.0" style="-fx-background-color: orange;" />
+                     <VBox layoutX="520.0" layoutY="230.0" minWidth="240.0" prefHeight="200.0" style="-fx-background-color: orange;" />
+                     <VBox layoutX="20.0" layoutY="440.0" minWidth="240.0" prefHeight="200.0" style="-fx-background-color: orange;" />
+                     <VBox layoutX="270.0" layoutY="440.0" minWidth="240.0" prefHeight="200.0" style="-fx-background-color: orange;" />
+                  </children>
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+               </FlowPane>
+            </content>
+            <VBox.margin>
+               <Insets top="10.0" />
+            </VBox.margin>
+         </ScrollPane>
+      </children>
+      <padding>
+         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </padding>
+   </VBox>
 </StackPane>
